@@ -24,7 +24,11 @@
   },
   "dependencies": {
     "bpmn-js": "^0.12.0",
+    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#pemwork-custom-provider",
+    "browserify-css": "^0.9.0",
     "diagram-js": "^0.12.0",
-    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#pemwork-custom-provider"
+    "i18next": "^2.1.0",
+    "moment": "^2.11.2",
+    "pikaday-time": "^1.4.0"
   }
 }

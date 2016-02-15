@@ -24,12 +24,13 @@
   },
   "dependencies": {
     "bpmn-js": "^0.12.0",
-    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#pemwork-custom-provider",
+    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git",
     "browserify-css": "^0.9.0",
     "diagram-js": "^0.12.0",
     "i18next": "^2.1.0",
     "lodash": "^4.3.0",
     "moment": "^2.11.2",
+    "multi-select-dropdown": "0.0.0",
     "pikaday-time": "^1.4.0"
   }
 }

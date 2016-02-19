@@ -9,13 +9,38 @@ module.exports = function(grunt) {
     config: {
       sources: 'lib',
       tests: 'test',
-      dist: '../../PemworkBPMApp/PemworkBPMApp/Scripts/bpmn-js-custom-implementation'
+      dist: 'dist/lib'
     },
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       src: ['<%=config.sources %>'],
       options: {
         jshintrc: true
+      }
+    },
+    // Watch task config
+    watch: {
+      js: {
+        files: "lib/**/*.js",
+        tasks: ['default']
+      }
+    },
+    // BrowserSync task config
+    browserSync: {
+      default_options: {
+        bsFiles: {
+          src: [
+            'lib/*.js',
+            'app/*.js',
+            '*.html'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: {
+            baseDir: './dist'
+          }
+        }
       }
     },
     bundle: {
@@ -32,4 +57,5 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   grunt.registerTask('default', [ 'jshint', 'bundle' ]);
+  grunt.registerTask('browsersync-watch', [ 'browserSync', 'watch' ]);
 };

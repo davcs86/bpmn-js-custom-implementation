@@ -1,0 +1,28 @@
+{
+  "name": "Pemwork",
+  "uri": "http://pemwork.com",
+  "prefix": "pemwork",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "Assignable",
+      "extends": [ "bpmn:UserTask" ],
+      "properties": [
+        {
+          "name": "assignee",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "duration",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    }
+  ],
+  "emumerations": [ ]
+}

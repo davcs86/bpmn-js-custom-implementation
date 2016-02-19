@@ -12,8 +12,10 @@
     "browserify-derequire": "^0.9.4",
     "bundle-collapser": "^1.2.1",
     "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-browserify": "^3.3.0",
     "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
     "inherits": "^2.0.1",
     "lessify": "^1.0.1",
     "load-grunt-tasks": "^3.4.0",
@@ -23,14 +25,15 @@
     "uglify-js": "^2.6.1"
   },
   "dependencies": {
-    "bpmn-js": "^0.12.0",
-    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git",
+    "bpmn-js": "git://github.com/davcs86/bpmn-js-properties-panel.git#lodash-430",
+    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#standalone-browserify-build",
     "browserify-css": "^0.9.0",
     "diagram-js": "^0.12.0",
     "i18next": "^2.1.0",
     "lodash": "^4.3.0",
     "moment": "^2.11.2",
     "multi-select-dropdown": "0.0.0",
-    "pikaday-time": "^1.4.0"
+    "pikaday-time": "^1.4.0",
+    "sync-request": "^3.0.0"
   }
 }

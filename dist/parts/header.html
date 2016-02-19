@@ -1,0 +1,42 @@
+<header>
+    <div ui-preloader></div>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+                    <li class=""><a href="#/viewer">Viewer</a></li>
+                    <li class=""><a href="#/modeler">Modeler</a></li>
+                    <li class=""><a href="https://github.com/davcs86/bpmn-js-custom-implementation" target="_blank">GitHub Repo</a></li>
+                    <li class=""><a href="https://github.com/bpmn-js/bpmn-js" target="_blank">BPMN.io</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown langs text-normal" data-ng-controller="LangController as LangCtrl" uib-dropdown is-open="LangCtrl.status.isOpenLang">
+                        <div class="dropdown-toggle active-flag pointer" uib-dropdown-toggle aria-label="lang">
+                            <div class="flag {{ LangCtrl.getFlag() }}"></div>
+                        </div>
+                        <ul uib-dropdown-menu class="with-arrow pull-right list-langs dropdown-menu-scaleIn" role="menu">
+                            <li data-ng-show="LangCtrl.lang !== 'English' ">
+                                <a href="javascript:;" data-ng-click="LangCtrl.setLang('English')"><div class="flag flags-american"></div> English</a>
+                            </li>
+                            <li data-ng-show="LangCtrl.lang !== 'Español' ">
+                                <a href="javascript:;" data-ng-click="LangCtrl.setLang('Español')"><div class="flag flags-mexico"></div> Español</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

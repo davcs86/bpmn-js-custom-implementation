@@ -1,0 +1,33 @@
+{
+  "name": "Custom BPMNJS implementation",
+  "homepage": "https://github.com/davcs86/bpmn-js-custom-implementation",
+  "authors": [
+    "David Castillo <davcs86@gmail.com>"
+  ],
+  "description": "Custom implementation of the BPMNJS library (bpmn.io)",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "bpmn2",
+    "bpmn-js"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.5.0",
+    "angular-bootstrap": "~1.1.2",
+    "angular-aria": "~1.5.0",
+    "angular-translate": "~2.9.1",
+    "angular-ui-router": "~0.2.18",
+    "angular-messages": "~1.5.0",
+    "angular-translate-loader-static-files": "~2.9.1",
+    "bootstrap": "3.3.6"
+  }
+}

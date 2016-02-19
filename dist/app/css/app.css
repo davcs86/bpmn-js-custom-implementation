@@ -1,0 +1,41 @@
+.nav, .pagination, .carousel, .panel-title a, .pointer {
+    cursor: pointer;
+}
+
+header .langs > div {
+    padding: 14px;
+}
+
+header .langs .list-langs a {
+    position: relative;
+    padding: 8px 20px 8px 57px;
+}
+
+header .langs .list-langs a:hover {
+    background-color: #222;
+    color: #ddd;
+}
+
+header .langs .list-langs a .flag {
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+
+.flag {
+    background-image: url("../assets/images/flags.png");
+    width: 32px;
+    height: 32px;
+    margin: -5px;
+    background-repeat: no-repeat;
+}
+.flags-american{background-position:0 0;height:32px;width:32px}
+.flags-china{background-position:0 -32px;height:32px;width:32px}
+.flags-france{background-position:0 -64px;height:32px;width:32px}
+.flags-germany{background-position:0 -96px;height:32px;width:32px}
+.flags-italy{background-position:0 -128px;height:32px;width:32px}
+.flags-japan{background-position:0 -160px;height:32px;width:32px}
+.flags-korea{background-position:0 -192px;height:32px;width:32px}
+.flags-portugal{background-position:0 -224px;height:32px;width:32px}
+.flags-russia{background-position:0 -256px;height:32px;width:32px}
+.flags-mexico{background-position:0 -288px;height:32px;width:32px}

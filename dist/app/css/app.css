@@ -2,6 +2,43 @@
     cursor: pointer;
 }
 
+html, body {
+    height: 100%;
+}
+
+.canvas {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.flex-item-grow {
+    flex: 1;
+}
+
+.flex-container-row {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+#modeler-container, #properties-panel-container {
+    position: relative;
+}
+
+#modeler-container {
+    flex-grow: 2;
+}
+
 header .langs > div {
     padding: 14px;
 }

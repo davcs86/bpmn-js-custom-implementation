@@ -11,11 +11,12 @@
         'ui.bootstrap',
         // app modules
         'app.config',
+        'app.routes',
         'app.i18n'
       ])
       .controller('AppController', AppController);
 
-    AppController.$inject = [];
+    AppController.$inject = ['$rootScope'];
 
     function AppController(){
       var vm = this;

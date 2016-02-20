@@ -12,7 +12,7 @@
       "extends": [ "bpmn:UserTask" ],
       "properties": [
         {
-          "name": "assignee",
+          "name": "assigned",
           "isAttr": true,
           "type": "String"
         },

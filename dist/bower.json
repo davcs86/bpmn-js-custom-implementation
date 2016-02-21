@@ -28,6 +28,7 @@
     "angular-ui-router": "~0.2.18",
     "angular-messages": "~1.5.0",
     "angular-translate-loader-static-files": "~2.9.1",
-    "bootstrap": "3.3.6"
+    "bootstrap": "3.3.6",
+    "ngstorage": "0.3.10"  
   }
 }

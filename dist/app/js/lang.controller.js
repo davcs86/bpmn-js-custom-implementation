@@ -18,8 +18,8 @@
     vm.lang = 'Español';
 
     $rootScope.$on('$translateChangeEnd', function() {
-      updateViewerLang();
-      updateModelerLang();
+      vm.updateViewerLang();
+      vm.updateModelerLang();
     });
 
     vm.setLang = function (lang) {

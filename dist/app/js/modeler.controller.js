@@ -6,9 +6,9 @@
 
     ModelerController.$inject = ['$rootScope', '$log'];
 
-    function ModelerController($rootScope, $log){
+    function ModelerController($rootScope, $log) {
       var vm = this;
-      $rootScope.$on('modelUpdated', function(evt, newModel){
+      $rootScope.$on('modelUpdated', function (evt, newModel) {
         vm.model = newModel;
         vm.modeler.importXML(diagram, function (err) {
           if (err) {
@@ -24,6 +24,9 @@
         }
       });
       vm.modeler.createDiagram($.noop);
+      vm.btn = function () {
+        console.log(vm.modeler.geti18n().t()); //
+      }
     }
   }
 )();

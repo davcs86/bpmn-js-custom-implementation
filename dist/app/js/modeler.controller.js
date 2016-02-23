@@ -4,9 +4,9 @@
       .module('custom-bpmnjs')
       .controller('ModelerController', ModelerController);
 
-    ModelerController.$inject = ['$rootScope', '$log'];
+    ModelerController.$inject = ['$rootScope', '$translate', '$log'];
 
-    function ModelerController($rootScope, $log) {
+    function ModelerController($rootScope, $translate, $log) {
       var vm = this;
       $rootScope.$on('modelUpdated', function (evt, newModel) {
         vm.model = newModel;
@@ -23,10 +23,19 @@
           parent: '#modeler-properties-panel'
         }
       });
+
       vm.modeler.createDiagram($.noop);
+      vm.modeler.geti18n().addResourceBundle('es-MX', 'translation', { 'Remove': 'Eliminar', 'Activate the hand tool': 'Activate the mano tool' });
+      vm.modeler.geti18n().changeLanguage('es-MX');
+
       vm.btn = function () {
         console.log(vm.modeler.geti18n().t()); //
-      }
+      };
+
+      $rootScope.$on('$translateChangeEnd', function(event, newLang) {
+        $log.log(newLang.language);
+        vm.modeler.geti18n().changeLanguage(newLang.language);
+      });
     }
   }
 )();

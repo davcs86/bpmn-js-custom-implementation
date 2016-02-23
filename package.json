@@ -31,6 +31,7 @@
     "diagram-js": "^0.12.0",
     "i18next": "^2.1.0",
     "lodash": "^4.3.0",
+    "min-dom": "^0.2.0",
     "moment": "^2.11.2",
     "multi-select-dropdown": "0.0.0",
     "pikaday-time": "^1.4.0",

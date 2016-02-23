@@ -17,18 +17,13 @@
     var vm = this;
     vm.lang = 'Español';
 
-    $rootScope.$on('$translateChangeEnd', function() {
-      vm.updateViewerLang();
-      vm.updateModelerLang();
-    });
-
     vm.setLang = function (lang) {
       switch (lang) {
         case 'English':
           $translate.use('en-US');
           break;
         case 'Español':
-          $translate.use('es-ES');
+          $translate.use('es-MX');
           break;
       }
       vm.lang = lang;
@@ -49,14 +44,6 @@
       }
       return result;
     };
-    vm.updateViewerLang = function () {
-      var newLang = $translate.use();
-      //TODO: Update the viewer lang
-    }
-    vm.updateModelerLang = function () {
-      var newLang = $translate.use();
-      //TODO: Update the modeler lang
-    }
   }
 })();
 

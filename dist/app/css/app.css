@@ -6,10 +6,22 @@ html, body {
     height: 100%;
 }
 
+.container-fluid {
+    width: 100%;
+}
+
+.module-title {
+    margin-top: 0;
+}
+
 .canvas {
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+.fix-header-distance{
+    margin-top: -14px;
 }
 
 .flex-container {

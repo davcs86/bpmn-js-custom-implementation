@@ -24,17 +24,21 @@
         }
       });
 
-      vm.modeler.createDiagram($.noop);
-      vm.modeler.geti18n().addResourceBundle('es-MX', 'translation', { 'Remove': 'Eliminar', 'Activate the hand tool': 'Activate the mano tool' });
-      vm.modeler.geti18n().changeLanguage('es-MX');
+      vm.modeler.createDiagram(function(err, diagram){
+        vm.modeler.get('i18n').addResourceBundle('es-MX', 'translation', {
+          'Remove': 'Eliminar',
+          'Activate the hand tool': 'Activar herramienta mano'
+        });
+        vm.modeler.get('i18n').changeLanguage('es-MX');
+      });
 
       vm.btn = function () {
-        console.log(vm.modeler.geti18n().t()); //
+        console.log(vm.modeler.get('i18n').t('Hola')); //
       };
 
       $rootScope.$on('$translateChangeEnd', function(event, newLang) {
         $log.log(newLang.language);
-        vm.modeler.geti18n().changeLanguage(newLang.language);
+        vm.modeler.get('i18n').changeLanguage(newLang.language);
       });
     }
   }

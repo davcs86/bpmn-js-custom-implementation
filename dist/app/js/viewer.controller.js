@@ -23,7 +23,7 @@
           parent: '#viewer-properties-panel'
         }
       });
-      vm.viewer.createDiagram($.noop);
+      //vm.viewer.createDiagram($.noop);
     }
   }
 )();

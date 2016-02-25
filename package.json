@@ -1,6 +1,6 @@
 {
   "name": "bpmn-js-custom-bundle",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Custom implementation of bpmn-js",
   "author": {
     "name": "David Castillo",
@@ -25,8 +25,8 @@
     "uglify-js": "^2.6.1"
   },
   "dependencies": {
-    "bpmn-js": "git://github.com/davcs86/bpmn-js-properties-panel.git#lodash-430",
-    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#standalone-browserify-build",
+    "bpmn-js": "git://github.com/davcs86/bpmn-js.git#i18n-local",
+    "bpmn-js-properties-panel": "git://github.com/davcs86/bpmn-js-properties-panel.git#local",
     "browserify-css": "^0.9.0",
     "diagram-js": "^0.12.0",
     "i18next": "^2.1.0",

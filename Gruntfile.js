@@ -22,7 +22,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: "lib/**/*.js",
-        tasks: ['default']
+        tasks: ['build']
       }
     },
     // BrowserSync task config
@@ -31,8 +31,9 @@ module.exports = function(grunt) {
         bsFiles: {
           src: [
             'lib/*.js',
-            'app/*.js',
-            '*.html'
+            'app/**/*.js',
+            '*.html',
+            'parts/*.html',
           ]
         },
         options: {
@@ -56,6 +57,6 @@ module.exports = function(grunt) {
   // tasks
   grunt.loadTasks('tasks');
 
-  grunt.registerTask('default', [ 'jshint', 'bundle' ]);
-  grunt.registerTask('browsersync-watch', [ 'browserSync', 'watch' ]);
+  grunt.registerTask('build', [ 'jshint', 'bundle' ]);
+  grunt.registerTask('devel', [ 'browserSync', 'watch' ]);
 };

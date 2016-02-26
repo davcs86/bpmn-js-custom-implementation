@@ -5,24 +5,34 @@ This project is a custom bundle of [bpmn-js](https://github.com/bpmn-io/bpmn-js)
 ## Install
 
 1. Clone the repo
-    ``` bash
+
+    ```shell
     $> git clone https://github.com/davcs86/bpmn-js-custom-implementation.git
     ```
+
 1. Install the _NPM_ packages
-    ```bash
+
+    ```shell
     $> cd bpmn-js-custom-implementation && npm install
     ```
+
 1. Install the _bower_ packages in the `dist` folder
-    ```bash
+
+    ```shell
     $> cd dist && bower install
     ```
+
 1. Build the bundle with _grunt_
-    ```bash
+
+    ```shell
     $> cd .. && grunt build
     ```
+
 **Additional**
+
 1. Run with BrowserSync with _grunt_
-    ```bash
+
+    ```shell
     $> grunt auto-build
     ```
 

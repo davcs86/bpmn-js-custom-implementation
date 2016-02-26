@@ -39,7 +39,7 @@ This project is a custom bundle of [bpmn-js](https://github.com/bpmn-io/bpmn-js)
 ## Known issues:
 
 - The [custom provider](lib/provider/pemwork/PemworkPropertiesProvider.js) is a **super lite & customized** implementation
-of the BPMN 2.0. If you want to use a more complete implementation (like BPMN2 or Camunda), change the files:
+of the BPMN 2.0 standard. If you want to use a more complete implementation, change the following files to use another provider (like BPMN2 or Camunda):
 
     - [lib/Viewer.js](lib/Viewer.js#L6) and [lib/Modeler.js](lib/Modeler.js#L5):
 

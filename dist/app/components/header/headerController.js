@@ -1,22 +1,24 @@
 (function () {
   "use strict";
   angular
-    .module('app.i18n', ['pascalprecht.translate'])
-    .config(function ($translateProvider) {
-      $translateProvider.useStaticFilesLoader({
-        prefix: window.APP_BASEURL+'Content/i18n/',
-        suffix: '.json'
-      });
-      $translateProvider.preferredLanguage('es-ES');
-    })
-    .controller('LangController', LangController);
+    .module('custom-bpmnjs')
+    .controller('headerController', headerController);
 
-  LangController.$inject = ['$rootScope', '$translate'];
+  headerController.$inject = ['$state', 'spinnerFactory', '$translate'];
 
-  function LangController($rootScope, $translate) {
+  function headerController($state, spinner, $translate) {
     var vm = this;
-    vm.lang = 'Español';
+    // spinner visibility
+    vm.spinnerVisible = spinner.visible;
 
+    // navbar active class
+    vm.isActive = function(query){
+      return (query === $state.current.name);
+    }
+
+    // lang dropdown
+    vm.lang = 'Español';
+    vm.status = {};
     vm.setLang = function (lang) {
       switch (lang) {
         case 'English':
@@ -28,7 +30,6 @@
       }
       vm.lang = lang;
     };
-
     vm.getFlag = function () {
       var lang, result;
       lang = vm.lang;

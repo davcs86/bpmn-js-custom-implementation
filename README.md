@@ -28,7 +28,7 @@ This project is a custom bundle of [bpmn-js](https://github.com/bpmn-io/bpmn-js)
     $> cd .. && grunt build
     ```
 
-**Additional**
+    **Optional**
 
 1. Run with BrowserSync with _grunt_
 

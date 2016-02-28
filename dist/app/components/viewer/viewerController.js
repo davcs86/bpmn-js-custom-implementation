@@ -4,9 +4,9 @@
       .module('custom-bpmnjs')
       .controller('ViewerController', ViewerController);
 
-    ViewerController.$inject = ['$rootScope', '$log', 'appFactory'];
+    ViewerController.$inject = ['$rootScope', '$log', 'viewerFactory'];
 
-    function ViewerController($rootScope, $log, appFactory){
+    function ViewerController($rootScope, $log, viewerFactory){
       var vm = this;
       $rootScope.$on('modelUpdated', function(evt, newModel){
         vm.model = newModel;

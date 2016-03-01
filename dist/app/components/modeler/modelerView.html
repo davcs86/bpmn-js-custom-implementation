@@ -7,15 +7,25 @@
             <div class="col-md-6 text-right">
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-default">
-                        <label for="diagram-input">
+                        <label for="diagram-input" class="unstyled-label">
                             <i class="glyphicon glyphicon-cloud-upload"></i>&nbsp;Upload diagram
                         </label>
-                        <input id="diagram-input" class="hidden" type="file" file-input="ModelerCtrl.importDiagram" accept=".bpmn">
+                        <input id="diagram-input" class="hidden" type="file" diagram-upload accept=".bpmn">
                     </button>
-                    <button type="button" class="btn btn-default">Middle</button>
-                    <button type="button" class="btn btn-default">Right</button>
+                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Save</button>
+                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Save & preview</button>
+                    <div class="btn-group" uib-dropdown>
+                        <button id="split-button" type="button" class="btn btn-success"><i class="glyphicon glyphicon-cog"></i>&nbsp;Current properties provider: {{ModelerCtrl.provider}}</button>
+                        <button type="button" class="btn btn-success" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                            <li role="menuitem" data-ng-repeat="(provKey, prov) in ModelerCtrl.providers"><a href="javascript:;" data-ng-click="ModelerCtrl.changePanelProvider(provKey)">{{provKey}}</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i>&nbsp;Download</button>
                 </div>
-                <button class="btn btn-sm btn-primary" data-ng-click="ModelerCtrl.btn()">Dummy button</button>
             </div>
         </div>
     </div>

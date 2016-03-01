@@ -7,7 +7,9 @@
 
   function viewerFactory($rootScope, diagramFactory) {
     var viewer = function() {
-      var bpmnJs = new window.BPMNJS_Custom();
+      var bpmnJs = new window.BPMNJS_Custom.Viewer({
+        container: '#modeler-canvas'
+      });
       $rootScope.$on('diagramSaved', function() {
         bpmnJs.importXML(diagramFactory.get(), function(err, diagram) {
           // TODO: Implement it

@@ -11,7 +11,7 @@
           url: '/' + route,
           views: {
             'maincontent@': {
-              templateUrl: 'app/js/components/' + route + '/' + route + 'View.html'
+              templateUrl: 'app/components/' + route + '/' + route + 'View.html'
             }
           }
         };

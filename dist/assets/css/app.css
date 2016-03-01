@@ -17,6 +17,14 @@ html, body {
 
 .module-title {
     margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.unstyled-label{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    margin-bottom: 0;
 }
 
 .canvas {

@@ -11,7 +11,11 @@
       'ui.bootstrap',
       'ngStorage',
       'pascalprecht.translate',
-      // app modules
-      'davcs86.fileUpload'
-    ]);
+      'toaster'
+    ])
+    .constant('Modeler', window.BpmnJSCustom.Modeler)
+    .constant('Viewer', window.BpmnJSCustom.Viewer)
+    .constant('bpmnProvider', window.BpmnJSCustom.bpmnProvider)
+    .constant('camundaProvider', window.BpmnJSCustom.camundaProvider)
+    .constant('customProvider', window.BpmnJSCustom.customProvider);
 })();

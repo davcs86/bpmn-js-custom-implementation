@@ -17,22 +17,33 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/angular-translate/angular-translate.min.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
 
     <script src="lib/bpmn-js-custom-implementation.js"></script>
 
-    <script src="app/js/routes-config.js"></script>
-    <script src="app/js/lang-controller.js"></script>
-    <script src="app/app-controller.js"></script>
-    <script src="app/js/factories/app-factory.js"></script>
-    <script src="app/js/modeler-controller.js"></script>
-    <script src="app/js/viewer-controller.js"></script>
+    <script src="app/appModule.js"></script>
+    <script src="app/appRoutesConfig.js"></script>
+    <script src="app/appLangConfig.js"></script>
+
+    <script src="app/shared/diagram/diagramImporterFactory.js"></script>
+    <script src="app/shared/diagram/diagramFactory.js"></script>
+    <script src="app/shared/diagram/diagramUploadDirective.js"></script>
+    <script src="app/shared/spinner/spinnerFactory.js"></script>
+
+    <script src="app/components/header/headerController.js"></script>
+    <script src="app/components/modeler/modelerController.js"></script>
+    <script src="app/components/modeler/modelerFactory.js"></script>
+    <script src="app/components/viewer/viewerController.js"></script>
+    <script src="app/components/viewer/viewerFactory.js"></script>
+
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="bower_components/AngularJS-Toaster/toaster.css" rel="stylesheet" />
     <link href="assets/css/app.css" rel="stylesheet" />
 </head>
-<body data-ng-app="custom-bpmnjs" data-ng-controller="AppController as AppCtrl" class="flex-container">
-    <header data-ng-include="'parts/header.html'"></header>
+<body data-ng-app="custom-bpmnjs" class="flex-container">
+    <header data-ng-include="'app/components/header/headerView.html'"></header>
     <section class="flex-item-grow flex-container" ui-view="maincontent"></section>
 </body>
 </html>

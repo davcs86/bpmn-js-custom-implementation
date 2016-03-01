@@ -3,15 +3,20 @@
   angular.module('custom-bpmnjs')
     .factory('spinnerFactory', spinnerFactory);
 
-  //spinnerFactory.$inject = [];
+  spinnerFactory.$inject = ['$rootScope'];
 
-  function spinnerFactory() {
+  function spinnerFactory($rootScope) {
     var spinner = {
       show: function(){
         this.visible = true;
+        this.emit();
       },
       hide: function(){
         this.visible = false;
+        this.emit();
+      },
+      emit: function(){
+        $rootScope.$emit('spinnerChanged', this.visible);
       },
       visible: false
     };

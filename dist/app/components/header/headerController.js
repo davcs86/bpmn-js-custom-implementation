@@ -2,14 +2,21 @@
   "use strict";
   angular
     .module('custom-bpmnjs')
-    .controller('headerController', headerController);
+    .controller('HeaderController', HeaderController);
 
-  headerController.$inject = ['$state', 'spinnerFactory', '$translate'];
+  HeaderController.$inject = ['$rootScope', '$state', '$translate', '$timeout'];
 
-  function headerController($state, spinner, $translate) {
+  function HeaderController($rootScope, $state, $translate, $timeout) {
     var vm = this;
-    // spinner visibility
-    vm.spinnerVisible = spinner.visible;
+    vm.spinnerVisible = false;
+    $rootScope.$on('spinnerChanged', function(evt, newValue) {
+      // spinner visibility
+      $timeout(function() {
+        // trigger digest
+        vm.spinnerVisible = newValue;
+      });
+    });
+
 
     // navbar active class
     vm.isActive = function(query){

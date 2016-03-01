@@ -21,6 +21,7 @@
         vm.save();
         $state.go('viewer');
       };
+      modelerFactory.create();
     }
   }
 )();

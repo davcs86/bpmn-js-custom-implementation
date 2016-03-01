@@ -8,7 +8,7 @@
 
     function ViewerController($rootScope, $log, viewerFactory){
       var vm = this;
-
+      viewerFactory.create();
     }
   }
 )();

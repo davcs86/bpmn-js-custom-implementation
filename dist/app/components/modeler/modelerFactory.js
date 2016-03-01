@@ -9,7 +9,6 @@
     function modeler() {
       var bpmnJS,
           that = this,
-          isDirty = false,
           providerList = {
             currentName: 'Custom',
               providers: {
@@ -33,7 +32,7 @@
       this.changeProvider = function(newProvider){
         if (angular.isDefined(that.getProviders()[newProvider])){
           setCurrentProviderName(newProvider);
-          that.updatePanelProvider();
+          that.updatePropertiesPanel();
         }
       };
       $rootScope.$on('diagramSaved', function () {
@@ -73,7 +72,7 @@
       });
       this.loadFromDiagramFactory();
     };
-    modeler.prototype.updatePanelProvider = function(){
+    modeler.prototype.updatePropertiesPanel = function(){
       var eventBus = this.bpmnJS.get('eventBus'),
           bpmnFactory = this.bpmnJS.get('bpmnFactory'),
           elementRegistry = this.bpmnJS.get('elementRegistry'),

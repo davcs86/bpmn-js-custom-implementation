@@ -29,6 +29,7 @@
     "angular-messages": "~1.5.0",
     "angular-translate-loader-static-files": "~2.9.1",
     "bootstrap": "3.3.6",
-    "ngstorage": "0.3.10"  
+    "ngstorage": "~0.3.10",
+    "AngularJS-Toaster": "angularjs-toaster#~1.2.0"
   }
 }

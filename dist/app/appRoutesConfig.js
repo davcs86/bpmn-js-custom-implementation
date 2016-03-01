@@ -1,7 +1,6 @@
 (function () {
   'use strict';
-
-  angular.module('app.routes', [])
+   angular.module('custom-bpmnjs')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
       var routes = [
         'modeler',
@@ -12,7 +11,7 @@
           url: '/' + route,
           views: {
             'maincontent@': {
-              templateUrl: 'parts/' + route + '.html'
+              templateUrl: 'app/components/' + route + '/' + route + 'View.html'
             }
           }
         };
@@ -25,7 +24,7 @@
       });
 
       $urlRouterProvider
-        .when('/', '/viewer')
-        .otherwise('/viewer');
+        .when('/', '/modeler')
+        .otherwise('/modeler');
     }]);
 })();

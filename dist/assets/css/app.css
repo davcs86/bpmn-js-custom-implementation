@@ -6,12 +6,25 @@ html, body {
     height: 100%;
 }
 
+.spinner {
+    width: 30px;
+    margin: 10px 10px 10px 0;
+}
+
 .container-fluid {
     width: 100%;
 }
 
 .module-title {
     margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.unstyled-label{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    margin-bottom: 0;
 }
 
 .canvas {
@@ -72,7 +85,7 @@ header .langs .list-langs a .flag {
 }
 
 .flag {
-    background-image: url("../assets/images/flags.png");
+    background-image: url("../images/flags.png");
     width: 32px;
     height: 32px;
     margin: -5px;

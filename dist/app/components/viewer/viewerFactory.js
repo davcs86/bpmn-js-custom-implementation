@@ -3,16 +3,16 @@
   angular.module('custom-bpmnjs')
     .factory('viewerFactory', viewerFactory);
 
-  viewerFactory.$inject = ['$rootScope', 'diagramFactory'];
+  viewerFactory.$inject = ['$rootScope', 'diagramFactory', 'Viewer'];
 
-  function viewerFactory($rootScope, diagramFactory) {
+  function viewerFactory($rootScope, diagramFactory, Viewer) {
     var viewer = function() {
-      var bpmnJs = new window.BPMNJS_Custom.Viewer({
-        container: '#modeler-canvas'
+      var bpmnJs = new Viewer({
+        container: '#viewer-canvas'
       });
       $rootScope.$on('diagramSaved', function() {
         bpmnJs.importXML(diagramFactory.get(), function(err, diagram) {
-          // TODO: Implement it
+          console.log('TODO: Implement it');
         });
       });
       return {
@@ -24,6 +24,6 @@
         }
       }
     };
-    return viewer;
+    return new viewer();
   }
 })();

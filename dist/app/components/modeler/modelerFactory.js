@@ -47,6 +47,14 @@
     modeler.prototype.downloadXML = function() {
       this.bpmnJS.saveXML();
     };
+    modeler.prototype.save = function() {
+      this.bpmnJS.saveXML(function(err, xml){
+        if(err) {
+          return;
+        }
+        diagramFactory.save(xml);
+      });
+    };
     modeler.prototype.create = function(){
       var that = this;
       this.bpmnJS = new Modeler({
@@ -66,7 +74,6 @@
       this.loadFromDiagramFactory();
     };
     modeler.prototype.updatePanelProvider = function(){
-
       var eventBus = this.bpmnJS.get('eventBus'),
           bpmnFactory = this.bpmnJS.get('bpmnFactory'),
           elementRegistry = this.bpmnJS.get('elementRegistry'),

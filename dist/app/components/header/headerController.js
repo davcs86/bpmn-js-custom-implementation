@@ -19,9 +19,9 @@
 
 
     // navbar active class
-    vm.isActive = function(query){
-      return (query === $state.current.name);
-    }
+    //vm.isActive = function(query){
+    //  return (query === $state.current.name);
+    //}
 
     // lang dropdown
     vm.lang = 'Español';

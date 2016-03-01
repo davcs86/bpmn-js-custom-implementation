@@ -31,6 +31,7 @@ html, body {
     height: 100%;
     width: 100%;
     position: absolute;
+    overflow-y: auto;
 }
 
 .fix-header-distance{

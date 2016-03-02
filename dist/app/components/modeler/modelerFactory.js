@@ -35,8 +35,11 @@
           that.updatePropertiesPanel();
         }
       };
-      $rootScope.$on('diagramSaved', function () {
-        that.loadFromDiagramFactory();
+      $rootScope.$on('$stateChangeSuccess', function(){
+        that.create(true);
+      });
+      $rootScope.$on('diagramImported', function(){
+         that.loadFromDiagramFactory();
       });
       this.create();
     };
@@ -54,7 +57,10 @@
         diagramFactory.save(xml);
       });
     };
-    modeler.prototype.create = function(){
+    modeler.prototype.create = function(overwrite){
+      if (!!overwrite){
+        this.bpmnJS.destroy();
+      }
       var that = this;
       this.bpmnJS = new Modeler({
         container: '#modeler-canvas',
@@ -66,10 +72,6 @@
         ]
       });
       this.bpmnJS.createDiagram(angular.noop);
-      this.bpmnJS.on('elements.changed', function() {
-         that.isDirty = true;
-         console.log('ELEMENTS CHANGED');
-      });
       this.loadFromDiagramFactory();
     };
     modeler.prototype.updatePropertiesPanel = function(){

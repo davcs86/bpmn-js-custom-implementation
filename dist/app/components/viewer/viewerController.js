@@ -4,11 +4,13 @@
       .module('custom-bpmnjs')
       .controller('ViewerController', ViewerController);
 
-    ViewerController.$inject = ['$rootScope', '$log', 'viewerFactory'];
+    ViewerController.$inject = ['$state', 'viewerFactory'];
 
-    function ViewerController($rootScope, $log, viewerFactory){
+    function ViewerController($state, viewerFactory){
       var vm = this;
-      viewerFactory.create();
+      vm.edit = function(){
+        $state.go('modeler');
+      }
     }
   }
 )();

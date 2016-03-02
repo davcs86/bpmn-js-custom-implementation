@@ -21,7 +21,7 @@
                             <span class="sr-only">Split button!</span>
                         </button>
                         <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
-                            <li role="menuitem" data-ng-repeat="(provKey, prov) in ModelerCtrl.providers"><a href="javascript:;" data-ng-click="ModelerCtrl.changePanelProvider(provKey)">{{provKey}}</a></li>
+                            <li role="menuitem" data-ng-repeat="(provKey, prov) in ModelerCtrl.providers"><span data-ng-click="ModelerCtrl.changePanelProvider(provKey)">{{provKey}}</span></li>
                         </ul>
                     </div>
                     <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i>&nbsp;Download</button>

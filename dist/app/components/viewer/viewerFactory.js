@@ -3,27 +3,39 @@
   angular.module('custom-bpmnjs')
     .factory('viewerFactory', viewerFactory);
 
-  viewerFactory.$inject = ['$rootScope', 'diagramFactory'];
+  viewerFactory.$inject = ['$rootScope', 'diagramFactory', 'Viewer'];
 
-  function viewerFactory($rootScope, diagramFactory) {
+  function viewerFactory($rootScope, diagramFactory, Viewer) {
     var viewer = function() {
-      var bpmnJs = new window.BPMNJS_Custom.Viewer({
-        container: '#modeler-canvas'
+      var bpmnJS,
+          that = this;
+      $rootScope.$on('$stateChangeSuccess', function(){
+        that.create(true);
       });
-      $rootScope.$on('diagramSaved', function() {
-        bpmnJs.importXML(diagramFactory.get(), function(err, diagram) {
-          // TODO: Implement it
-        });
+      $rootScope.$on('diagramImported', function(){
+        that.loadFromDiagramFactory();
       });
-      return {
-        get: function () {
-          return bpmnJs;
-        },
-        downloadXML: function () {
-          bpmnJs.saveXML();
-        }
-      }
+      this.create();
     };
-    return viewer;
+    viewer.prototype.create = function(overwrite) {
+      if (!!overwrite){
+        this.bpmnJS.destroy();
+      }
+      this.bpmnJS = new Viewer({
+        container: '#viewer-canvas'
+      });
+      // assumes it's correct
+       this.loadFromDiagramFactory();
+    };
+    viewer.prototype.loadFromDiagramFactory = function(){
+      // assumes it's correct
+      var diagram = diagramFactory.get();
+      this.bpmnJS.importXML(diagram, angular.noop);
+    };
+    viewer.prototype.downloadXML = function() {
+      console.log("Download");
+      this.bpmnJS.saveXML();
+    };
+    return new viewer();
   }
 })();

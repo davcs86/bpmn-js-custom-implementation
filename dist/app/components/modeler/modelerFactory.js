@@ -9,7 +9,6 @@
     function modeler() {
       var bpmnJS,
           that = this,
-          isDirty = false,
           providerList = {
             currentName: 'Custom',
               providers: {
@@ -33,11 +32,14 @@
       this.changeProvider = function(newProvider){
         if (angular.isDefined(that.getProviders()[newProvider])){
           setCurrentProviderName(newProvider);
-          that.updatePanelProvider();
+          that.updatePropertiesPanel();
         }
       };
-      $rootScope.$on('diagramSaved', function () {
-        that.loadFromDiagramFactory();
+      $rootScope.$on('$stateChangeSuccess', function(){
+        that.create(true);
+      });
+      $rootScope.$on('diagramImported', function(){
+         that.loadFromDiagramFactory();
       });
       this.create();
     };
@@ -47,7 +49,18 @@
     modeler.prototype.downloadXML = function() {
       this.bpmnJS.saveXML();
     };
-    modeler.prototype.create = function(){
+    modeler.prototype.save = function() {
+      this.bpmnJS.saveXML(function(err, xml){
+        if(err) {
+          return;
+        }
+        diagramFactory.save(xml);
+      });
+    };
+    modeler.prototype.create = function(overwrite){
+      if (!!overwrite){
+        this.bpmnJS.destroy();
+      }
       var that = this;
       this.bpmnJS = new Modeler({
         container: '#modeler-canvas',
@@ -59,14 +72,9 @@
         ]
       });
       this.bpmnJS.createDiagram(angular.noop);
-      this.bpmnJS.on('elements.changed', function() {
-         that.isDirty = true;
-         console.log('ELEMENTS CHANGED');
-      });
       this.loadFromDiagramFactory();
     };
-    modeler.prototype.updatePanelProvider = function(){
-
+    modeler.prototype.updatePropertiesPanel = function(){
       var eventBus = this.bpmnJS.get('eventBus'),
           bpmnFactory = this.bpmnJS.get('bpmnFactory'),
           elementRegistry = this.bpmnJS.get('elementRegistry'),

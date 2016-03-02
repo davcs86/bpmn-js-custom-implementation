@@ -1,10 +1,10 @@
 <div class="fix-header-distance flex-item-grow flex-container" data-ng-controller="ModelerController as ModelerCtrl">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <h3 class="module-title">Modeler</h3>
             </div>
-            <div class="col-md-6 text-right">
+            <div class="col-md-9 text-right">
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-default">
                         <label for="diagram-input" class="unstyled-label">
@@ -12,8 +12,8 @@
                         </label>
                         <input id="diagram-input" class="hidden" type="file" diagram-upload accept=".bpmn">
                     </button>
-                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Save</button>
-                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Save & preview</button>
+                    <button type="button" data-ng-click="ModelerCtrl.save()" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Save</button>
+                    <button type="button" data-ng-click="ModelerCtrl.saveAndPreview()" class="btn btn-default"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Save & preview</button>
                     <div class="btn-group" uib-dropdown>
                         <button id="split-button" type="button" class="btn btn-success"><i class="glyphicon glyphicon-cog"></i>&nbsp;Current properties provider: {{ModelerCtrl.provider}}</button>
                         <button type="button" class="btn btn-success" uib-dropdown-toggle>
@@ -21,7 +21,7 @@
                             <span class="sr-only">Split button!</span>
                         </button>
                         <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
-                            <li role="menuitem" data-ng-repeat="(provKey, prov) in ModelerCtrl.providers"><a href="javascript:;" data-ng-click="ModelerCtrl.changePanelProvider(provKey)">{{provKey}}</a></li>
+                            <li role="menuitem" data-ng-repeat="(provKey, prov) in ModelerCtrl.providers"><span data-ng-click="ModelerCtrl.changePanelProvider(provKey)">{{provKey}}</span></li>
                         </ul>
                     </div>
                     <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i>&nbsp;Download</button>

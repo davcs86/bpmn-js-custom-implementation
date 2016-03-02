@@ -1,11 +1,20 @@
 <div class="fix-header-distance flex-item-grow flex-container" data-ng-controller="ViewerController as ViewerCtrl">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <h3 class="module-title">Viewer</h3>
             </div>
-            <div class="col-md-6 text-right">
-                <button class="btn btn-sm btn-primary" data-ng-click="ViewerCtrl.btn()">Dummy button</button>
+            <div class="col-md-9 text-right">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">
+                        <label for="diagram-input" class="unstyled-label">
+                            <i class="glyphicon glyphicon-cloud-upload"></i>&nbsp;Upload diagram
+                        </label>
+                        <input id="diagram-input" class="hidden" type="file" diagram-upload accept=".bpmn">
+                    </button>
+                    <button type="button" data-ng-click="ViewerCtrl.edit()" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit</button>
+                    <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i>&nbsp;Download</button>
+                </div>
             </div>
         </div>
     </div>

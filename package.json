@@ -26,8 +26,8 @@
     "uglify-js": "^2.6.1"
   },
   "dependencies": {
-    "bpmn-js": "davcs86/bpmn-js#i18n-local",
-    "bpmn-js-properties-panel": "davcs86/bpmn-js-properties-panel#dev",
+    "bpmn-js": "davcs86/bpmn-js#i18n-dev",
+    "bpmn-js-properties-panel": "davcs86/bpmn-js-properties-panel#local",
     "browserify-css": "^0.9.0",
     "camunda-bpmn-moddle": "^0.2.6",
     "diagram-js": "^0.12.0",

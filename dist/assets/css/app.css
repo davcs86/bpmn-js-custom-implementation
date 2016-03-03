@@ -2,12 +2,8 @@
     cursor: pointer;
 }
 
-.hidden-navbar .navbar {
+.hidden-navbar .navbar-brand, .hidden-navbar .navbar-nav>li:not(.dropdown) {
     display: none !important;
-}
-
-.hidden-navbar .fix-header-distance{
-    margin-top: 6px !important;
 }
 
 [data-ng-click]{

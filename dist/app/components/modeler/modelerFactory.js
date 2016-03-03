@@ -3,9 +3,9 @@
   angular.module('custom-bpmnjs')
     .factory('modelerFactory', modelerFactory);
 
-  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', 'bpmnProvider', 'camundaProvider', 'customProvider'];
+  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', '$q', '$translate', 'bpmnProvider', 'camundaProvider', 'customProvider'];
 
-  function modelerFactory($rootScope, diagramFactory, Modeler, bpmnProvider, camundaProvider, customProvider) {
+  function modelerFactory($rootScope, diagramFactory, Modeler, $q, $translate, bpmnProvider, camundaProvider, customProvider) {
     function modeler() {
       var bpmnJS,
           that = this,
@@ -41,6 +41,11 @@
       $rootScope.$on('diagramImported', function(){
          that.loadFromDiagramFactory();
       });
+      $rootScope.$on('$translateChangeEnd', function () {
+        //$timeout(function () {
+        that.bpmnJS.get('translate').applyLanguage();
+        //});
+      });
       this.create();
     };
     modeler.prototype.get = function() {
@@ -56,6 +61,9 @@
         }
         diagramFactory.save(xml);
       });
+    };
+    modeler.prototype.translator = function(str, args){
+      return $translate.instant(str, args);
     };
     modeler.prototype.create = function(overwrite){
       if (!!overwrite){
@@ -85,7 +93,13 @@
     };
     modeler.prototype.loadFromDiagramFactory = function(){
       // assumes it's correct
-      this.bpmnJS.importXML(diagramFactory.get(), angular.noop);
+      var that = this;
+      this.bpmnJS.importXML(diagramFactory.get(), function(err){
+        if (err){
+          return;
+        }
+        that.bpmnJS.get('translate').t = that.translator;
+      });
     };
     return new modeler();
   }

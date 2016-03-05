@@ -16,14 +16,9 @@
         that.loadFromDiagramFactory();
       });
       $rootScope.$on('$translateChangeEnd', function () {
-        //$timeout(function () {
-        that.bpmnJS.get('translate').applyLanguage();
-        //});
+        that.bpmnJS.get('translate').changeLanguage($translate.use());
       });
       this.create();
-    };
-    viewer.prototype.translator = function(str, args){
-      return $translate.instant(str, args);
     };
     viewer.prototype.create = function(overwrite) {
       if (!!overwrite){
@@ -37,15 +32,7 @@
     };
     viewer.prototype.loadFromDiagramFactory = function(){
       // assumes it's correct
-      var diagram = diagramFactory.get(),
-          that = this;
-      this.bpmnJS.importXML(diagram, function(err){
-        if (err) {
-          return;
-        }
-        // set the translation function
-        that.bpmnJS.get('translate').t = that.translator;
-      });
+      this.bpmnJS.importXML(diagramFactory.get(), angular.noop);
     };
     viewer.prototype.downloadXML = function() {
       console.log("Download");

@@ -3,14 +3,14 @@
   angular.module('custom-bpmnjs')
     .factory('modelerFactory', modelerFactory);
 
-  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', '$q', '$translate', 'bpmnProvider', 'camundaProvider', 'customProvider'];
+  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', 'PropertiesPanel', '$translate', 'bpmnProvider', 'camundaProvider', 'customProvider'];
 
-  function modelerFactory($rootScope, diagramFactory, Modeler, $q, $translate, bpmnProvider, camundaProvider, customProvider) {
+  function modelerFactory($rootScope, diagramFactory, Modeler, PropertiesPanel, $translate, bpmnProvider, camundaProvider, customProvider) {
     function modeler() {
       var bpmnJS,
           that = this,
           providerList = {
-            currentName: 'Custom',
+            currentName: 'Camunda',
               providers: {
                 'BPMN 2.0': bpmnProvider,
                 'Camunda': camundaProvider,
@@ -42,9 +42,7 @@
          that.loadFromDiagramFactory();
       });
       $rootScope.$on('$translateChangeEnd', function () {
-        //$timeout(function () {
-        that.bpmnJS.get('translate').applyLanguage();
-        //});
+        that.bpmnJS.get('translate').changeLanguage($translate.use());
       });
       this.create();
     };
@@ -62,9 +60,6 @@
         diagramFactory.save(xml);
       });
     };
-    modeler.prototype.translator = function(str, args){
-      return $translate.instant(str, args);
-    };
     modeler.prototype.create = function(overwrite){
       if (!!overwrite){
         this.bpmnJS.destroy();
@@ -76,6 +71,7 @@
           parent: '#modeler-properties-panel'
         },
         additionalModules: [
+          PropertiesPanel,
           that.getCurrentProvider()
         ]
       });
@@ -93,13 +89,7 @@
     };
     modeler.prototype.loadFromDiagramFactory = function(){
       // assumes it's correct
-      var that = this;
-      this.bpmnJS.importXML(diagramFactory.get(), function(err){
-        if (err){
-          return;
-        }
-        that.bpmnJS.get('translate').t = that.translator;
-      });
+      this.bpmnJS.importXML(diagramFactory.get(), angular.noop);
     };
     return new modeler();
   }

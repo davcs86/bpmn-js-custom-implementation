@@ -3,38 +3,12 @@
   angular.module('custom-bpmnjs')
     .factory('modelerFactory', modelerFactory);
 
-  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', '$q', '$translate', 'bpmnProvider', 'camundaProvider', 'customProvider'];
+  modelerFactory.$inject = ['$rootScope', 'diagramFactory', 'Modeler', 'PropertiesProviders', '$translate'];
 
-  function modelerFactory($rootScope, diagramFactory, Modeler, $q, $translate, bpmnProvider, camundaProvider, customProvider) {
+  function modelerFactory($rootScope, diagramFactory, Modeler, PropertiesProviders, $translate) {
     function modeler() {
       var bpmnJS,
-          that = this,
-          providerList = {
-            currentName: 'Custom',
-              providers: {
-                'BPMN 2.0': bpmnProvider,
-                'Camunda': camundaProvider,
-                'Custom': customProvider
-            }
-          },
-          setCurrentProviderName = function(providerName) {
-            providerList.currentName = providerName;
-          };
-      this.getProviders = function() {
-        return providerList.providers;
-      };
-      this.getCurrentProviderName = function() {
-        return providerList.currentName;
-      };
-      this.getCurrentProvider = function() {
-        return that.getProviders()[that.getCurrentProviderName()];
-      };
-      this.changeProvider = function(newProvider){
-        if (angular.isDefined(that.getProviders()[newProvider])){
-          setCurrentProviderName(newProvider);
-          that.updatePropertiesPanel();
-        }
-      };
+          that = this;
       $rootScope.$on('$stateChangeSuccess', function(){
         that.create(true);
       });
@@ -42,11 +16,27 @@
          that.loadFromDiagramFactory();
       });
       $rootScope.$on('$translateChangeEnd', function () {
-        //$timeout(function () {
-        that.bpmnJS.get('translate').applyLanguage();
-        //});
+        that.bpmnJS.get('translate').changeLanguage($translate.use());
       });
       this.create();
+    };
+    modeler.prototype.setCurrentProviderName = function(providerName) {
+      PropertiesProviders.current = providerName;
+    };
+    modeler.prototype.getProviders = function() {
+      return PropertiesProviders.providers;
+    };
+    modeler.prototype.getCurrentProviderName = function() {
+      return PropertiesProviders.current;
+    };
+    modeler.prototype.getCurrentProvider = function() {
+      return this.getProviders()[this.getCurrentProviderName()];
+    };
+    modeler.prototype.changeProvider = function(newProvider){
+      if (angular.isDefined(this.getProviders()[newProvider])){
+        this.setCurrentProviderName(newProvider);
+        this.updatePropertiesPanel();
+      }
     };
     modeler.prototype.get = function() {
       return this.bpmnJS;
@@ -61,9 +51,6 @@
         }
         diagramFactory.save(xml);
       });
-    };
-    modeler.prototype.translator = function(str, args){
-      return $translate.instant(str, args);
     };
     modeler.prototype.create = function(overwrite){
       if (!!overwrite){
@@ -93,13 +80,7 @@
     };
     modeler.prototype.loadFromDiagramFactory = function(){
       // assumes it's correct
-      var that = this;
-      this.bpmnJS.importXML(diagramFactory.get(), function(err){
-        if (err){
-          return;
-        }
-        that.bpmnJS.get('translate').t = that.translator;
-      });
+      this.bpmnJS.importXML(diagramFactory.get(), angular.noop);
     };
     return new modeler();
   }

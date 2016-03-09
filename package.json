@@ -26,8 +26,9 @@
     "uglify-js": "^2.6.1"
   },
   "dependencies": {
-    "bpmn-js": "davcs86/bpmn-js#i18n-dev",
-    "bpmn-js-properties-panel": "davcs86/bpmn-js-properties-panel#local",
+    "bpmn-js": "github:davcs86/bpmn-js#i18n-dev",
+    "bpmn-js-i18next": "github:davcs86/bpmn-js-i18next",
+    "bpmn-js-properties-panel": "github:davcs86/bpmn-js-properties-panel",
     "browserify-css": "^0.9.0",
     "camunda-bpmn-moddle": "^0.2.6",
     "diagram-js": "^0.12.0",
@@ -36,7 +37,6 @@
     "min-dom": "^0.2.0",
     "moment": "^2.11.2",
     "multi-select-dropdown": "0.0.0",
-    "pikaday-time": "^1.4.0",
-    "sync-request": "^3.0.0"
+    "pikaday-time": "^1.4.0"
   }
 }

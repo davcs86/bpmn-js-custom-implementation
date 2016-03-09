@@ -15,7 +15,5 @@
     ])
     .constant('Modeler', window.BpmnJSCustom.Modeler)
     .constant('Viewer', window.BpmnJSCustom.Viewer)
-    .constant('bpmnProvider', window.BpmnJSCustom.bpmnProvider)
-    .constant('camundaProvider', window.BpmnJSCustom.camundaProvider)
-    .constant('customProvider', window.BpmnJSCustom.customProvider);
+    .constant('PropertiesProviders', window.BpmnJSCustom.PropertiesProviders);
 })();

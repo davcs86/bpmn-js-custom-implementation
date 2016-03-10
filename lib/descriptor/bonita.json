@@ -1,0 +1,25 @@
+{
+  "name": "BonitaBPM",
+  "uri": "http://www.bonitabpm.com/",
+  "prefix": "di_1",
+  "associations": [],
+  "types": [
+    {
+      "name": "BonitaEdge",
+      "extends": [ "bpmndi:BPMNEdge" ],
+      "properties": [
+        {
+          "name": "waypoint",
+          "isUnique": false,
+          "isMany": true,
+          "type": "dc:Point",
+          "redefines": "di:Edge#waypoint",
+          "xml": {
+            "serialize": "xsi:type"
+          }
+        }
+      ]
+    }
+  ],
+  "emumerations": [ ]
+}

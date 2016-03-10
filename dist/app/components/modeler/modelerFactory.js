@@ -66,7 +66,14 @@
           that.getCurrentProvider()
         ]
       });
-      this.bpmnJS.createDiagram(angular.noop);
+      //this.bpmnJS.definitions.set('xmlns:di_1', 'http://www.omg.org/spec/DD/20100524/DI');
+      this.bpmnJS.createDiagram(function(err, warnings){
+        console.log(that);
+        console.log(arguments);
+        if(err){
+          console.log(warnings);
+        }
+      });
       this.loadFromDiagramFactory();
     };
     modeler.prototype.updatePropertiesPanel = function(){
@@ -80,7 +87,13 @@
     };
     modeler.prototype.loadFromDiagramFactory = function(){
       // assumes it's correct
-      this.bpmnJS.importXML(diagramFactory.get(), angular.noop);
+      var that = this;
+      this.bpmnJS.importXML(diagramFactory.get(), function(err, warnings){
+        console.log(that);
+        if(err){
+          console.log(warnings);
+        }
+      });
     };
     return new modeler();
   }

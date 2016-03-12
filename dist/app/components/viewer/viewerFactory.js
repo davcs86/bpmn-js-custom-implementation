@@ -15,8 +15,8 @@
       $rootScope.$on('diagramImported', function(){
         that.loadFromDiagramFactory();
       });
-      $rootScope.$on('$translateChangeEnd', function () {
-        that.bpmnJS.get('translate').changeLanguage($translate.use());
+      $rootScope.$on('$translateChangeEnd', function (evt, params) {
+        that.bpmnJS.get('translate').changeLanguage(params.language);
       });
       this.create();
     };

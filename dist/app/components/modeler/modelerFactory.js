@@ -15,8 +15,8 @@
       $rootScope.$on('diagramImported', function(){
          that.loadFromDiagramFactory();
       });
-      $rootScope.$on('$translateChangeEnd', function () {
-        that.bpmnJS.get('translate').changeLanguage($translate.use());
+      $rootScope.$on('$translateChangeEnd', function (evt, params) {
+        that.bpmnJS.get('translate').changeLanguage(params.language);
       });
       this.create();
     };
@@ -80,9 +80,10 @@
       var eventBus = this.bpmnJS.get('eventBus'),
           bpmnFactory = this.bpmnJS.get('bpmnFactory'),
           elementRegistry = this.bpmnJS.get('elementRegistry'),
+          translate = this.bpmnJS.get('translate'),
           propertiesProvider = this.getCurrentProvider();
       this.bpmnJS.options.additionalModules[0] = propertiesProvider;
-      this.bpmnJS.get('propertiesPanel')._propertiesProvider = new propertiesProvider.propertiesProvider[1](eventBus, bpmnFactory, elementRegistry);
+      this.bpmnJS.get('propertiesPanel')._propertiesProvider = new propertiesProvider.propertiesProvider[1](eventBus, bpmnFactory, elementRegistry, translate);
       this.bpmnJS.get('propertiesPanel').update(this.bpmnJS.get('propertiesPanel')._current.element);
     };
     modeler.prototype.loadFromDiagramFactory = function(){

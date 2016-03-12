@@ -1,7 +1,8 @@
 {
   "translation": {
-    "Append {0}": "Añadir {{0}}"
+    "Append {0}": "Añadir {{0}}",
 
-    ///
+    /* Properties panel strings */
+    "Process Name": "Nombre del proceso"
   }
 }

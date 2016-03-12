@@ -33,24 +33,6 @@ This project is a custom bundle of [bpmn-js](https://github.com/bpmn-io/bpmn-js)
 1. Run with BrowserSync with _grunt_
 
     ```shell
-    $> grunt auto-build
+    $> grunt devel
     ```
 
-## Known issues:
-
-- The [custom provider](lib/provider/pemwork/PemworkPropertiesProvider.js) is a **super lite & customized** implementation
-of the BPMN 2.0 standard. If you want to use a more complete implementation, change the following files to use another provider (like BPMN2 or Camunda):
-
-    - [lib/Viewer.js](lib/Viewer.js#L6) and [lib/Modeler.js](lib/Modeler.js#L5):
-
-        ```js
-        // Replace
-        require('./provider/pemwork');
-        // with
-        require('bpmn-js-properties-panel/lib/bpmn');
-        // or (for camunda)
-        require('bpmn-js-properties-panel/lib/camunda');
-
-        // and remove
-        pemwork: require('./descriptor/pemwork.json'),
-        ```

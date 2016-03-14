@@ -16,7 +16,7 @@
          that.loadFromDiagramFactory();
       });
       $rootScope.$on('$translateChangeEnd', function (evt, params) {
-        that.bpmnJS.get('translate').changeLanguage(params.language);
+        that.bpmnJS.get('i18nextHelper').changeLanguage(params.language);
       });
       this.create();
     };

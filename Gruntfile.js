@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     config: {
       sources: 'lib',
       tests: 'test',
-      dist: 'dist/lib'
+      dist: '../../PemworkBPMApp/PemworkBPMApp/Scripts/bpmn-js-custom-implementation'//'dist/lib'
     },
     pkg: grunt.file.readJSON('package.json'),
     jshint: {

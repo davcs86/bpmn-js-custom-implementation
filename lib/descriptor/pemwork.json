@@ -22,6 +22,20 @@
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "SequenceFlowConditional",
+      "extends": [ "bpmn:SequenceFlow" ],
+      "properties": [
+        {
+          "name": "conditionExpression",
+          "type": "bpmn:FormalExpression",
+          "redefines": "bpmn:SequenceFlow#conditionExpression",
+          "xml": {
+            "serialize": "xsi:type"
+          }
+        }
+      ]
     }
   ],
   "emumerations": [ ]

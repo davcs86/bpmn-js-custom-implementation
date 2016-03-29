@@ -37,7 +37,7 @@
     "lodash": "^4.3.0",
     "min-dom": "^0.2.0",
     "moment": "^2.11.2",
-    "multi-select-dropdown": "0.0.0",
+    "multi-select-dropdown": "github:bsara/multi-select-dropdown.js",
     "pikaday-time": "^1.4.0",
     "sync-request": "^3.0.0"
   }

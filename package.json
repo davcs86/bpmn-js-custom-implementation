@@ -31,7 +31,7 @@
     "bpmn-js-properties-panel": "github:davcs86/bpmn-js-properties-panel",
     "browserify-css": "^0.9.0",
     "camunda-bpmn-moddle": "^0.2.6",
-    "diagram-js": "^0.12.0",
+    "diagram-js": "^0.14.0",
     "diagram-js-direct-editing": "^0.13.0",
     "i18next": "^2.1.0",
     "lodash": "^4.3.0",

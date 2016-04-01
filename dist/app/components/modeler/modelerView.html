@@ -1,3 +1,36 @@
+<style>
+  .io-control {
+        background: #FFF;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        border-radius: 2px;
+        padding: 5px;
+    }
+  .io-zoom-reset {
+      margin-bottom: 10px;
+  }
+    .io-zoom-controls {
+        width: auto;
+        position: fixed;
+        right: 15px;
+        bottom: 90px;
+    }
+    .io-control-list {
+        list-style: none;
+        padding: 5px;
+        margin: 0;
+    }
+
+    .io-control-list a, .io-control-list a:visited, .io-control-list button {
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+        font-size: 22px;
+        line-height: 26px;
+        color: #555555;
+        background: none;
+        border: none;
+    }
+</style>
 <div class="fix-header-distance flex-item-grow flex-container" data-ng-controller="ModelerController as ModelerCtrl">
     <div class="container-fluid">
         <div class="row">
@@ -30,7 +63,34 @@
         </div>
     </div>
     <div class="flex-item-grow flex-container flex-container-row">
+
         <div class="flex-item-grow" id="modeler-container">
+            <div class="io-zoom-controls">
+
+                <ul class="io-zoom-reset io-control io-control-list">
+                    <li>
+                        <button title="reset zoom" jsaction="click:bio.zoomReset">
+                            <span class="glyphicon glyphicon-off"></span>
+                        </button>
+                    </li>
+                </ul>
+
+                <ul class="io-zoom io-control io-control-list">
+                    <li>
+                        <button title="zoom in" jsaction="click:bio.zoomIn">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                    </li>
+                    <li>
+                        <hr>
+                    </li>
+                    <li>
+                        <button href="" title="zoom out" jsaction="click:bio.zoomOut">
+                            <span class="glyphicon glyphicon-minus-sign"></span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
             <div id="modeler-canvas" class="canvas"></div>
         </div>
         <div class="flex-item-grow" id="properties-panel-container">

@@ -3,6 +3,7 @@
     "Append {type}": "Añadir {{type}}",
 
     /* Properties panel strings */
-    "Process Name": "Nombre del proceso"
+    "Process Name": "Nombre del proceso",
+    "Process Variables": "Variables de proceso"
   }
 }

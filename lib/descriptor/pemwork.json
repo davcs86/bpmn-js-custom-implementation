@@ -59,6 +59,62 @@
           }
         }
       ]
+    },
+
+    {
+      "name": "FormData",
+      "superClass": [ "Element" ],
+      "properties": [
+        {
+          "name": "fields",
+          "type": "FormField",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "FormField",
+      "superClass": [ "Element" ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "label",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "datePattern",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "defaultValue",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "required",
+          "type": "Boolean",
+          "isAttr": true,
+          "default": false
+        },
+        {
+          "name": "readonly",
+          "type": "Boolean",
+          "isAttr": true,
+          "default": false
+        }
+
+      ]
     }
   ],
   "emumerations": [ ]

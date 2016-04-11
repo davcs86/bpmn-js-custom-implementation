@@ -46,17 +46,16 @@
         }
       ]
     },
+
     {
       "name": "SequenceFlowConditional",
       "extends": [ "bpmn:SequenceFlow" ],
       "properties": [
+
         {
-          "name": "conditionExpression",
-          "type": "bpmn:FormalExpression",
-          "redefines": "bpmn:SequenceFlow#conditionExpression",
-          "xml": {
-            "serialize": "xsi:type"
-          }
+          "name": "conditionPemwork",
+          "isAttr": true,
+          "type": "String"
         }
       ]
     },

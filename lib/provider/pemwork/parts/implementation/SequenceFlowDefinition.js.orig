@@ -64,7 +64,7 @@ function SequenceFlowDefinition(group, element, bpmnFactory, elementRegistry, tr
     '</div>' +
     '<label  for="conditionType">'+titleCond+'</label>'+
     '<div class="pp-field-wrapper">' +
-    '<select name="selectCondition" data-on-change="updateEventDefinitionForm"'+
+    '<select name="selectCondition" '+
     '">' +
       //  '  <option value=""></option>' +
     '  <option value="==">==</option>'+
@@ -95,7 +95,7 @@ function SequenceFlowDefinition(group, element, bpmnFactory, elementRegistry, tr
       if (!isUndefined(element.businessObject.conditionPemwork)){
         valor = element.businessObject.conditionPemwork;
         // procesa el valor para llenar los combos
-        var processVariableOperator = valor.match(/[=<>!]{1,2}|\.isTrue|\.isFalse|\.fileExist/)[0];
+        var processVariableOperator = valor.match(/[=<>!]{1,2}|\.isTrue|\.isFalse/)[0];
         var partes = valor.split(processVariableOperator);
         var processVariable = partes[0];
         var processVariableValue = partes[1];
@@ -155,8 +155,14 @@ function SequenceFlowDefinition(group, element, bpmnFactory, elementRegistry, tr
       var newProperties = {
         conditionPemwork: values.conditionPemwork
       };
+<<<<<<< HEAD
+      return cmdHelper.updateBusinessObject(element.businessObject.di.$parent,
+          element.businessObject.di.$parent, newProperties);
+     // return cmdHelper.updateBusinessObject(element, element.businessObject, newProperties);
+=======
       return cmdHelper.updateBusinessObject(element.businessObject,
           element.businessObject, newProperties);
+>>>>>>> 247986b5c4c766c120d7a35696c6a4129e07788d
     },
 
     updateEventDefinitionForm: function (element, propertyNode, event) {
@@ -172,7 +178,6 @@ function SequenceFlowDefinition(group, element, bpmnFactory, elementRegistry, tr
       var  optionsProcessToEnable = {};
       var  firstEnabledOption = null;
       var CondPanel = domQuery('[id=CondPanel]', propertyNode);
-      domQuery('[name=conditionEventDefinition]', propertyNode).value ="";
       if(type1 == 'File' ) {
 
         optionsProcessToEnable['.fileExist'] = '.fileExist';

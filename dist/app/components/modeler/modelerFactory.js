@@ -62,9 +62,12 @@
         propertiesPanel: {
           parent: '#modeler-properties-panel'
         },
-          pemworkSettings: {
-        base_url: 'http://localhost/PemworkBPMApp/'
-      },
+        paletteOverride: {
+          parent: '#modeler-palette-override'
+        },
+        pemworkSettings: {
+          base_url: 'http://localhost/PemworkBPMApp/'
+        },
         additionalModules: [
           that.getCurrentProvider()
         ]

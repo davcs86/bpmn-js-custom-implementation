@@ -1,0 +1,15 @@
+# bower_components/
+# lib/
+
+**/*.less
+**/*.sass
+**/*.scss
+**/*.md
+**/*.map
+**/*.gzip
+**/*.gitignore
+**/*.npmignore
+**/*.yml
+**/*.js?*
+**/*.txt
+**/*LICENSE

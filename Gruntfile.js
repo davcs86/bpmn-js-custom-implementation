@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     config: {
       sources: 'lib',
       tests: 'test',
-      dist: 'dist/lib'//'../../PemworkBPMApp/PemworkBPMApp/Scripts/bpmn-js-custom-implementation'
+      dist: 'docs/lib'//'../../PemworkBPMApp/PemworkBPMApp/Scripts/bpmn-js-custom-implementation'
     },
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         options: {
           watchTask: true,
           server: {
-            baseDir: './dist'
+            baseDir: './docs'
           }
         }
       }

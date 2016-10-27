@@ -2,6 +2,8 @@
 
 This project is a custom bundle of [bpmn-js](https://github.com/bpmn-io/bpmn-js) library.
 
+**Online demo:** [http://davcs86.github.io/bpmn-js-custom-implementation/#/modeler](http://davcs86.github.io/bpmn-js-custom-implementation/#/modeler)
+
 ## Install
 
 1. Clone the repo

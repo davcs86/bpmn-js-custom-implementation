@@ -11,13 +11,11 @@
     ContextMenu({
       selector: '.djs-group',
       callback: function(key, options) {
-        $rootScope.$emit('context-menu:click', key, options);
+        var clickedElementId = this.context.childNodes[0].attributes['data-element-id'].nodeValue;
+        $rootScope.$emit('context-menu:click', key, options, clickedElementId);
       },
       items: {
-        "edit": {name: "Edit", icon: "fa-edit"},
-        "cut": {name: "Beer", icon: "fa-beer"},
-        "copy": {name: "Cloud download", icon: "fa-cloud-download"},
-        "paste": {name: "Certificate", icon: "fa-certificate"}
+        "delete": {name: "Delete", icon: "fa-delete"}
       }
     });
     vm.spinnerVisible = false;

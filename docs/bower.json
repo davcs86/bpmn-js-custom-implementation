@@ -32,6 +32,7 @@
     "ngstorage": "~0.3.10",
     "AngularJS-Toaster": "angularjs-toaster#~1.2.0",
     "jQuery-contextMenu": "github:swisnl/jQuery-contextMenu#^2.3.0",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "angulartics-google-analytics": "^0.4.0"
   }
 }

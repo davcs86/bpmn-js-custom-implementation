@@ -11,7 +11,9 @@
       'ui.bootstrap',
       'ngStorage',
       'pascalprecht.translate',
-      'toaster'
+      'toaster',
+      'angulartics',
+      'angulartics.google.analytics'
     ])
     .constant('Modeler', window.BpmnJSCustom.Modeler)
     .constant('Viewer', window.BpmnJSCustom.Viewer)
